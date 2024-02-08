@@ -1,3 +1,12 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Feb 8 08:21:42 2024
+Ejemplo para graficar animada una funcion NIVEL III
+@author: JOSUE
+"""
+
+#---------------------------------
+
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
@@ -6,8 +15,8 @@ from matplotlib.animation import FuncAnimation
 mean_x1, std_dev_x1 = 1.97, 0.125
 mean_x2, std_dev_x2 = 5, 1.20
 
-N=2000
-speed=0.0001
+N=10000
+speed=0.00001
 
 # Generar 100 muestras aleatorias para X1 y X2
 samples_x1 = np.random.normal(mean_x1, std_dev_x1, N)
@@ -47,7 +56,7 @@ ax1.legend(handles=[legend_acierto, legend_fallo], loc='upper left')
 
 # Título para el conteo de puntos
 title_text = ax1.text(2.8, 0.1, '', fontsize=10, ha='right', va='bottom')
-ax1.set_title('Animación de Pruebas Aleatorias de Variables X1 y X2')  # Inicializar el título
+ax1.set_title('Nivel III. Simulaciones de Montecarlo')  # Inicializar el título
 
 # Función de inicialización
 def init():
@@ -69,7 +78,7 @@ def update(frame):
     scatter.set_facecolor(colors)
 
     # Actualizar el título con el conteo de puntos
-    title_text.set_text(f'Puntos procesados: {frame}')
+    title_text.set_text(f'nº simulaciones: {frame}')
 
     # Actualizar leyenda de aciertos y fallos
     aciertos = np.sum(3.325 * x1 - x2 >= 0)
